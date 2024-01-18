@@ -133,6 +133,11 @@ async function main() {
     try {
         const referrer = "0xcD01A3acED67e266be21117376C7025B384Cd4d7";
         const privateKeyList = fs.readFileSync('privateKeyList.csv', 'utf8').split('\n');
+        if (privateKeyList[privateKeyList.length - 1] === '') {
+           privateKeyList.pop();
+         }
+        console.log(privateKeyList.length);
+
         const getCodeResultMap = new Map();
 
         while (true) {
